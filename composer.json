@@ -1,0 +1,30 @@
+{
+    "name": "guillaume-richard/hackaviz",
+    "description": "visualisation des données pour un hackaviz 2019",
+    "authors": [
+        {
+            "name": "Guillaume RICHARD",
+            "email": "g.jf.richard@gmail.com"
+        }
+    ],
+    "authors": [
+        {
+            "name": "Guillaume RICHARD",
+            "email": "g.jf.richard@gmail.com",
+            "homepage": "https://guillaume-richard.fr/",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "support": {
+        "email": "contact@guillaume-richard.fr"
+    },
+    "require": {
+        "slim/slim": "^3.12",
+        "slim/twig-view": "^2.4"
+    }
+}

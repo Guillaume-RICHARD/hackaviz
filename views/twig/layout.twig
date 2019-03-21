@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        <link rel="stylesheet" href="assets/css/jquery.dynatable.css" />
+        <title>{% block title %}{{ Title }}{% endblock %} - My Webpage</title>
+    {% endblock %}
+</head>
+<body>
+<div id="header">
+{% block header %}
+    <h1>{{ Title }}</h1>
+    <nav>
+        <a href="{{ path_for('index') }}">Accueil</a>
+        <a href="{{ path_for('communes') }}">Par communes</a>
+        <a href="{{ path_for('trajets') }}">Par trajets</a>
+    </nav>
+{% endblock %}
+</div>
+<div id="content">
+        {% block content %}{% endblock %}
+</div>
+<div id="footer">
+    <script type="text/javascript" src="assets/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.dynatable.js"></script>
+    &copy; Copyright 2011 by <a href="https://guillaume-richard.fr/">me</a>.
+    {% block footer %}{% endblock %}
+</div>
+</body>
+</html>
