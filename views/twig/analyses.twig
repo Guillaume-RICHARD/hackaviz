@@ -1,0 +1,27 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    <div class="row justify-content-md-center">
+        <h1>{{ Title }}</h1>
+    </div>
+
+    <!-- Données basiques -->
+    <div class="row blue">
+        <h2>Les déplacements domicile-travail dans la région Occitanie.</h2>
+        <p>
+            Dans le fichier traitant des communes, Voici les données que l'on peut ressortir :
+            <ul>
+                <li>4516 villes, issue de 13 départements (9,11,12,30,31,32,34,46,48,65,66,81,82)</li>
+            </ul>
+        </p>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+    <script type="text/javascript" src="assets/js/d3.min.js"></script>
+    <script type="text/javascript" src="assets/js/lodash.js"></script>
+    <script type="text/javascript" src="assets/js/functions.js"></script>
+
+    <script type="text/javascript" src="assets/js/analysis.js"></script>
+{% endblock %}

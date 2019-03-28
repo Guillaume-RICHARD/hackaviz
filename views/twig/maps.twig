@@ -1,0 +1,20 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    <div class="row justify-content-md-center">
+        <h1>{{ Title }}</h1>
+    </div>
+
+    <!-- Maps -->
+    <div class="row">
+        <div id="map"></div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMsgVrJAvHHiFtL_MoYsbpzUghD8U3zSI&callback=initMap"
+            async defer></script>
+
+    <script type="text/javascript" src="assets/js/maps.js"></script>
+{% endblock %}

@@ -2,29 +2,37 @@
 <html>
 <head>
     {% block head %}
-        <link rel="stylesheet" href="assets/css/jquery.dynatable.css" />
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="assets/css/styles.css" />
         <title>{% block title %}{{ Title }}{% endblock %} - My Webpage</title>
     {% endblock %}
 </head>
 <body>
-<div id="header">
 {% block header %}
-    <h1>{{ Title }}</h1>
-    <nav>
-        <a href="{{ path_for('index') }}">Accueil</a>
-        <a href="{{ path_for('communes') }}">Par communes</a>
-        <a href="{{ path_for('trajets') }}">Par trajets</a>
-    </nav>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+        <h5 class="my-0 mr-md-auto font-weight-normal">
+            <a class="p-2 text-dark" href="{{ path_for('index') }}">
+                Hackaviz 2019
+            </a>
+        </h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="{{ path_for('index') }}">Accueil</a>
+            <a class="p-2 text-dark" href="{{ path_for('analyses') }}">Analyses des données</a>
+            <a class="p-2 text-dark" href="{{ path_for('maps') }}">Carto</a>
+        </nav>
+    </div>
 {% endblock %}
+
+<div class="container">
+    {% block content %}{% endblock %}
 </div>
-<div id="content">
-        {% block content %}{% endblock %}
-</div>
-<div id="footer">
-    <script type="text/javascript" src="assets/js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.dynatable.js"></script>
-    &copy; Copyright 2011 by <a href="https://guillaume-richard.fr/">me</a>.
-    {% block footer %}{% endblock %}
-</div>
+
+<footer class="footer">
+    <div class="container">
+        &copy; Copyright 2011 by <a href="https://guillaume-richard.fr/">me</a>.
+        {% block footer %}{% endblock %}
+    </div>
+</footer>
+
 </body>
 </html>

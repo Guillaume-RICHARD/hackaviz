@@ -14,7 +14,6 @@ $configuration = [
 $c = new \Slim\Container($configuration);
 
 $app = new Slim($c);
-$getCsv = new getCsv();
 
 // Fetch DI Container
 $container = $app->getContainer();
