@@ -11,10 +11,22 @@ Promise.all([
     // Quelques recherches sur les datas du fichier "par_commune.csv"
     console.log("Nombre de villes : "+data['commune'].length);
 
-    var departement = [];
+    var departements = [];
     data['commune'].forEach(function(element) {
-        departement.push(element.departement);
+        departements.push(element.departement);
     });
-    console.log("Nombre de département en Occitanie : "+cleanArray(departement).length);
-    console.log("Département en Occitanie : "+cleanArray(departement));
+
+    departements = cleanArray(departements);
+    var nbDepartement = departements.length;
+
+    console.log("Nombre de département en Occitanie : " + nbDepartement);
+    console.log("Département en Occitanie : "+departements);
+
+    data['commune'].forEach(function(element) {
+        departements.forEach(function (departement) {
+            if (departement === element.departement) {
+                console.log(departement, element.departement);
+            }
+        })
+    });
 });
