@@ -3,6 +3,9 @@
     max-width: 100%;
     margin: 0;
 }
+.row {
+    margin-bottom: 60px;
+}
 
 .border-top { border-top: 1px solid #e5e5e5; }
 .border-bottom { border-bottom: 1px solid #e5e5e5; }
@@ -40,12 +43,16 @@ p {
         display: block;
     }
 
+    .table-responsive th {
+        min-width: 200px;
+    }
+
     .table-responsive thead {
         display: none;
     }
 
     .table-responsive td {
-        padding-left: 150px;
+        padding-left: 220px;
         position: relative;
         margin-top: -1px;
         background: #FFF;
@@ -61,13 +68,16 @@ p {
         position: absolute;
         top: 0;
         left: 0;
-        width: 130px;
+        width: 200px;
         bottom: 0;
         background-color: #000;
         color: #FFF;
         display: flex;
         align-items: center;
         font-weight: bold;
+    }
+    .table-responsive td {
+        color: #000;
     }
 
     .table-responsive tr {
@@ -78,6 +88,14 @@ p {
         padding-left: 10px;
     }
 
+}
+
+.table-responsive {
+    width: 600px;
+    margin: 0 auto;
+}
+.table-responsive th {
+    width: 300px;
 }
 
 /******************** footer ********************/

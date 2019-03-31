@@ -8,12 +8,35 @@
     <!-- Données basiques -->
     <div class="row blue">
         <h2>Les déplacements domicile-travail dans la région Occitanie.</h2>
-        <p>
-            Dans le fichier traitant des communes, Voici les données que l'on peut ressortir :
-            <ul>
-                <li>4516 villes, issue de 13 départements (9,11,12,30,31,32,34,46,48,65,66,81,82)</li>
-            </ul>
-        </p>
+        <p>Dans le fichier traitant des communes, Voici les données que l'on peut ressortir :</p>
+
+        <ul>
+            <li>4516 villes, issue des 13 départements de l'Occitanie</li>
+            <li>Voici le nombre de ville par département :</li>
+            <table class="table table-responsive table-striped table-dark">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Département</th>
+                    <th>Nombre de villes</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr><td>Ariège (09)</td><td>332</td></tr>
+                <tr><td>Aude (11)</td><td>436</td></tr>
+                <tr><td>Aveyron (12)</td><td>286</td></tr>
+                <tr><td>Gard (30)</td><td>353</td></tr>
+                <tr><td>Haute-Garonne (31)</td><td>589</td></tr>
+                <tr><td>Gers (32)</td><td>462</td></tr>
+                <tr><td>Hérault (34)</td><td>343</td></tr>
+                <tr><td>Lot (46)</td><td>326</td></tr>
+                <tr><td>Lozère (48)</td><td>176</td></tr>
+                <tr><td>Haute-Pyrénnées (65)</td><td>472</td></tr>
+                <tr><td>Pyrénnées-Orientales (66)</td><td>226</td></tr>
+                <tr><td>Tarn (81)</td><td>320</td></tr>
+                <tr><td>Tarn-et-Garonne (82)</td><td>195</td></tr>
+                </tbody>
+            </table>
+        </ul>
     </div>
 
 {% endblock %}
@@ -22,6 +45,7 @@
     <script type="text/javascript" src="assets/js/d3.min.js"></script>
     <script type="text/javascript" src="assets/js/lodash.js"></script>
     <script type="text/javascript" src="assets/js/functions.js"></script>
+    <script type="text/javascript" src="assets/js/responsiveArray.js"></script>
 
     <script type="text/javascript" src="assets/js/analysis.js"></script>
 {% endblock %}

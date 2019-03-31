@@ -9,3 +9,17 @@ function cleanArray(array) {
     }
     return out;
 }
+
+// Calcul le nombre d'occurences d'une valeur dans un tableau
+function countOccurences(tab){
+    var result = {};
+    tab.forEach(function(elem){
+        if(elem in result){
+            result[elem] = ++result[elem];
+        }
+        else{
+            result[elem] = 1;
+        }
+    });
+    return result;
+}
