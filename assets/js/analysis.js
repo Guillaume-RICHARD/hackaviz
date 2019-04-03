@@ -22,7 +22,6 @@ Promise.all([
     delete data[0];
     console.log(data['commune']);
 
-
     data[1].forEach(function(d) {
         var element = [
             'habitants','latitude','longitude','menages','pers_par_menages','revenu_median','travail_commune',

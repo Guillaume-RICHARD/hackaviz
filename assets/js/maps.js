@@ -219,17 +219,67 @@ function initMap() {
         ]
     });
 
-    // NOTE: This uses cross-domain XHR, and may not work on older browsers.
-    map.data.loadGeoJson('data/par_commune.geojson');
+    Promise.all([
+        d3.csv("data/par_trajet.csv")
+    ]).then(function(data) {
+        data[0].forEach(function(d) {
+            var element = [
+                'habitants','latitude','longitude','menages','pers_par_menages','revenu_median','travail_commune',
+                'travail_departement','travail_emplois','travail_insee','travail_latitude','travail_longitude',
+                'unite_conso_menages','2009','2009_inter','2009_extra','2009_extra_travail_commune','2014','2014_inter',
+                '2014_extra','2014_extra_travail_commune'
+            ];
+            element.forEach(function(el) {
+                delete d[el];
+            });
+        });
+        data['trajet'] = data[0];
+        delete data[0];
+        console.log(data['trajet']);
 
-    // Color Capital letters blue, and lower case letters red.
-    // Capital letters are represented in ascii by values less than 91
-    map.data.setStyle(function(feature) {
-        var departement = feature.getProperty('departement');
-        var color = (departement === 31) ? 'red' : 'blue';
-        return {
-            fillColor: color,
-            strokeWeight: 0
-        };
+        // NOTE: This uses cross-domain XHR, and may not work on older browsers.
+        map.data.loadGeoJson('data/par_commune.geojson');
+
+        map.data.setStyle(function (par_commune) {
+            var departement     = par_commune.getProperty('departement');
+            var commune         = par_commune.getProperty('commune');
+            var inter_voiture   = par_commune.getProperty('2015_inter_voiture');
+            var extra_voiture   = par_commune.getProperty('2015_extra_voiture');
+
+            var color       = '#666';
+            var gradient = [
+                '#04f', '#00b','#009','#005',
+                '#315', '#704', '#f00'
+            ];
+
+            var result = data['trajet'].filter(function (trajet) {
+                if (trajet.commune === commune) {
+                    var distance_auto_km = (trajet.distance_auto_km !== undefined) ? trajet.distance_auto_km : null;
+                    var co2 = 135 * parseFloat(distance_auto_km) * (parseFloat(inter_voiture) + parseFloat(extra_voiture));
+
+                    if (0 <= co2 && co2 < 10000)
+                        color = '#00b';
+                    else if (10000 <= co2 && co2 < 100000)
+                        color = '#009';
+                    else if (100000 <= co2 && co2 < 500000)
+                        color = '#007';
+                    else if (500000 <= co2 && co2 < 1000000)
+                        color = '#005';
+                    else if (1000000 <= co2 && co2 < 5000000)
+                        color = '#315';
+                    else if (5000000 <= co2 && co2 < 10000000)
+                        color = '#704';
+                    else if (10000000 <= co2)
+                        color = '#b02';
+
+                    return color;
+                }
+            });
+
+            return {
+                fillColor: color,
+                strokeWeight: 0
+            };
+        });
     });
 }
